@@ -148,6 +148,15 @@ divx {
     width: 24px;
 }
 
+
+.faviconBig {
+    text-align: center;
+    background-image: url("../bookmark_logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 36px;
+    width: 36px;
+}
 .bookmarksListLayout {
     display:grid;
     grid-template-columns: 36px auto;

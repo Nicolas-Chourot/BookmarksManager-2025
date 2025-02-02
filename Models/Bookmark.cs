@@ -17,7 +17,7 @@ public class Bookmark
     public string Title { get; set; }
 
     [Required]
-    [DisplayName("Courriel")]
+    [DisplayName("Lien vers le site")]
     [Url(ErrorMessage = "Hyperlien invalide")]
     public string Url { get; set; }
 }

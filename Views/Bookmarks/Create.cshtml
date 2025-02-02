@@ -2,40 +2,50 @@
 
 @{
     ViewBag.Title = "Create";
+    string faviconUrl = Model.Url != null ? "http://www.google.com/s2/favicons?sz=64&domain=" + Model.Url : "/bookmark_logo.png";
 }
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div id="favicon" class="faviconBig" style="background-image: url('@faviconUrl');"></div>
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <hr />
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Soumettre" class="btn btn-primary" />
-            </div>
-        </div>
+    @Html.LabelFor(model => model.Title)
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
     </div>
-}
 
+    @Html.LabelFor(model => model.Url)
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+    </div>
+
+    <hr />
+    <input type="submit" value="Soumettre" class="btn btn-primary" />
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        /*$("#Url").on("keyup", function () {
+            var url = "https://www.google.com/s2/favicons?sz=64&domain=" + $(this).val();
+            $("#favicon").css('background-image', `url(${url})`);
+        })*/
+        function setFavicon(siteUrl) {
+            var faviconUrl = "https://www.google.com/s2/favicons?sz=64&domain=" + siteUrl;
+            $("#favicon").css('background-image', `url(${faviconUrl})`);
+        }
+        var timeout = null;
+        $('#Url').keyup(function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                setFavicon($(this).val());
+            }, 1000);
+        });
+    </script>
 }
