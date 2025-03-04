@@ -1,9 +1,9 @@
 {
-    "name": "Contacts Manager",
-    "short_name": "Contacts Manager",
+    "name": "Bookmarks Manager",
+    "short_name": "Bookmarks Manager",
     "icons": [
         {
-            "src": "contact-logo.svg",
+            "src": "bookmark_logo.png",
             "sizes": "any",
             "type": "image/svg+xml",
             "purpose": "any"

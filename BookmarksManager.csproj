@@ -114,6 +114,7 @@
     <Compile Include="Controllers\BookmarksController.cs" />
     <Compile Include="DAL\AssetAttribute.cs" />
     <Compile Include="DAL\DB.cs" />
+    <Compile Include="DAL\ImageAsset.cs" />
     <Compile Include="DAL\Repository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -128,6 +129,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="App_Data\Bookmarks.json" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\bootbox-custom.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
@@ -137,6 +139,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\autoRefreshedPanel.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -154,6 +157,7 @@
     <Content Include="Views\Bookmarks\Create.cshtml" />
     <Content Include="Views\Bookmarks\Details.cshtml" />
     <Content Include="Views\Bookmarks\Edit.cshtml" />
+    <Content Include="Views\Bookmarks\GetBookmarks.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -32,10 +32,7 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script>
-        /*$("#Url").on("keyup", function () {
-            var url = "https://www.google.com/s2/favicons?sz=64&domain=" + $(this).val();
-            $("#favicon").css('background-image', `url(${url})`);
-        })*/
+        
         function setFavicon(siteUrl) {
             var faviconUrl = "https://www.google.com/s2/favicons?sz=64&domain=" + siteUrl;
             $("#favicon").css('background-image', `url(${faviconUrl})`);

@@ -4,18 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<div class="bookmarksListLayout">
-    @foreach (var item in Model)
-    {
-        string faviconUrl = "http://www.google.com/s2/favicons?sz=64&domain=" + item.Url;
+<div id="BookmarksPanel" class="bookmarksListLayout"> </div>
 
-        <a href="@item.Url" target="_blank" title="Aller à @item.Title">
-            <div class="favicon" style="background-image: url('@faviconUrl');"></div>
-        </a>
-
-        <a href="/Bookmarks/Details/@item.Id" class="noDecoration" title="Voir les détails de @item.Title">
-            @Html.DisplayFor(modelItem => item.Title)
-        </a>
-
-    }
-</div>
+@section Scripts {
+    <script>
+        $(() => { let BookmarksPanel = new AutoRefreshedPanel("BookmarksPanel", "@Url.Action("GetBookmarks")", 2); })
+    </script>
+}

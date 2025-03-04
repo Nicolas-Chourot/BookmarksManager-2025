@@ -10,6 +10,7 @@ namespace BookmarksManager
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/autoRefreshedPanel.js",
                         "~/Scripts/bootbox-custom.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

@@ -16,10 +16,19 @@ namespace BookmarksManager.Controllers
             return View();
         }
 
+        public ActionResult GetBookmarks(bool forceRefresh = false)
+        {
+            if (forceRefresh || DB.Bookmarks.HasChanged)
+            {
+                return PartialView(DB.Bookmarks.ToList().OrderBy(c => c.Title).ToList());
+            }
+            return null;
+        }
+
         public ActionResult Index()
         {
             Session["Action"] = "Index";
-            return View(DB.Bookmarks.ToList().OrderBy(c => c.Title).ToList());
+            return View();
         }
 
         public ActionResult Details(int id)
